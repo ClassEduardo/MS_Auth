@@ -41,16 +41,11 @@ builder.Services.AddScoped<IRepositoryBase<User>>(provider =>
     new JsonRepositoryBase<User>("users.json"));
 
 builder.Services.AddAuthorization();
-builder.Services.AddControllers();
 
 var app = builder.Build();
 
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 app.MapControllers();
 app.Run();

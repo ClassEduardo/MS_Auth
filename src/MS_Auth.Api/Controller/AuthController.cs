@@ -7,6 +7,8 @@ using MS_Auth.Infrastructure.Auth.Interface;
 
 namespace MS_Auth.Api.Controller;
 
+[ApiController]
+[Route("[controller]")]
 public class AuthController(IAuthService authService) : ControllerBase
 {
     private readonly IAuthService _authService = authService;
